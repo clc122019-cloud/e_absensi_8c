@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Piket / Kurikulum | e-ABSENSI 8C</title>
+<style>
+*{box-sizing:border-box}
+:root{
+--primary:#2563eb;--primary-dark:#1d4ed8;--primary-soft:#eff6ff;
+--dark:#0f172a;--muted:#64748b;--line:#e2e8f0;--bg:#f4f7fb;
+--green:#16a34a;--green-soft:#f0fdf4;--yellow:#d97706;--yellow-soft:#fffbeb;
+--blue:#2563eb;--blue-soft:#eff6ff;--red:#dc2626;--red-soft:#fef2f2
+}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;background:radial-gradient(circle at 5% 0%,rgba(37,99,235,.08),transparent 27%),linear-gradient(180deg,#f8fafc,#f3f6fb);color:var(--dark);font-family:"Segoe UI",Arial,sans-serif}
+header{height:72px;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 32px;position:sticky;top:0;z-index:20;box-shadow:0 4px 18px rgba(15,23,42,.04)}
+.brand{display:flex;align-items:center;gap:12px}.brand img{width:43px;height:43px;object-fit:contain}.brand-main b{display:block;font-size:16px;letter-spacing:-.2px}.brand-main small{display:block;color:var(--muted);font-size:10px;margin-top:3px}
+.role{display:flex;align-items:center;gap:8pxdisplay:flex;align-items:center;gap:10px}.role-badge{padding:7px 10px;border-radius:9px;background:var(--primary-soft);color:#1d4ed8;font-size:9px;font-weight:800;letter-spacing:.4px}.connection{display:flex;align-items:center;gap:7px;color:var(--muted);font-size:10px}.connection i{width:7px;height:7px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 4px #dcfce7}
+.wrap{max-width:1180px;margin:auto;padding:30px 24px 55px}
+.hero{background:#fff;border:1px solid var(--line);border-radius:22px;padding:24px;margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;gap:25px;box-shadow:0 7px 24px rgba(15,23,42,.035)}
+.hero-left{display:flex;align-items:flex-start;gap:14px}.hero-icon{width:50px;height:50px;border-radius:15px;background:linear-gradient(135deg,#2563eb,#1d4ed8);color:#fff;display:grid;place-items:center;font-size:21px;box-shadow:0 9px 22px rgba(37,99,235,.18)}
+.hero h1{margin:0;font-size:28px;letter-spacing:-.6px}.hero p{margin:6px 0 0;color:var(--muted);font-size:12px;line-height:1.6}
+.controls{display:flex;align-items:center;gap:7px;flex-wrap:wrap;justify-content:flex-end}.period,.date{border:1px solid #d5deea;background:#fff;color:#475569;border-radius:10px;padding:9px 11px;font-size:10px;font-weight:750;cursor:pointer;transition:.18s}.period:hover,.date:hover{border-color:#93c5fd;transform:translateY(-1px)}.period.active{background:linear-gradient(135deg,#2563eb,#1d4ed8);border-color:#2563eb;color:#fff;box-shadow:0 6px 16px rgba(37,99,235,.18)}
+.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:22px}.card{position:relative;overflow:hidden;background:#fff;border:1px solid var(--line);border-radius:18px;padding:17px 18px;min-height:112px;box-shadow:0 5px 18px rgba(15,23,42,.035);transition:.2s}.card:hover{transform:translateY(-2px);box-shadow:0 11px 27px rgba(15,23,42,.07)}.card:after{content:"";position:absolute;right:-18px;bottom:-22px;width:72px;height:72px;border-radius:50%;background:currentColor;opacity:.045}.label{font-size:10px;color:var(--muted);font-weight:650}.value{font-size:30px;line-height:1;font-weight:850;margin-top:14px;letter-spacing:-1px}.card-icon{position:absolute;right:15px;top:15px;width:32px;height:32px;border-radius:10px;display:grid;place-items:center;font-size:14px}.total{color:#475569}.total .card-icon{background:#f1f5f9}.h{color:var(--green)}.h .card-icon{background:var(--green-soft)}.s{color:var(--yellow)}.s .card-icon{background:var(--yellow-soft)}.i{color:var(--blue)}.i .card-icon{background:var(--blue-soft)}.a{color:var(--red)}.a .card-icon{background:var(--red-soft)}
+.two{display:grid;grid-template-columns:1.12fr .88fr;gap:18px}.panel{background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px;margin-bottom:20px;box-shadow:0 6px 22px rgba(15,23,42,.035)}.panel-head{display:flex;align-items:center;gap:11px;margin-bottom:18px}.panel-icon{width:36px;height:36px;border-radius:11px;background:var(--primary-soft);color:var(--primary);display:grid;place-items:center;font-size:15px}.panel h2{font-size:16px;margin:0}.panel-sub{font-size:10px;color:var(--muted);margin-top:3px}
+.bars{display:grid;gap:15px}.barline{display:grid;grid-template-columns:70px 1fr 55px;align-items:center;gap:10px;font-size:11px}.track{height:13px;background:#e8edf4;border-radius:99px;overflow:hidden}.fill{height:100%;border-radius:99px;transition:width .35s}.fill.h{background:#22c55e}.fill.s{background:#f59e0b}.fill.i{background:#3b82f6}.fill.a{background:#ef4444}
+.metric{display:flex;align-items:center;gap:20px}.ring{position:relative;width:118px;height:118px;flex:none;border-radius:50%;background:conic-gradient(#2563eb 0deg,#2563eb var(--deg,0deg),#e5eaf1 var(--deg,0deg),#e5eaf1 360deg);display:grid;place-items:center}.ring:after{content:"";position:absolute;width:88px;height:88px;border-radius:50%;background:#fff}.ring-value{position:relative;z-index:2;font-size:23px;font-weight:900}.metric-info{flex:1}.metric-title{font-size:12px;font-weight:800;color:#334155;margin-bottom:5px}.metric-desc{font-size:10px;color:var(--muted);line-height:1.7}.insight{margin-top:14px;padding:11px 12px;border-radius:12px;background:#f8fafc;border:1px solid var(--line);font-size:10px;color:#475569;line-height:1.6}.insight b{color:#0f172a}
+.table-panel{padding:0;overflow:hidden}.table-head{padding:19px 20px 14px}.table-wrap{overflow:auto;max-height:570px}.table-note{padding:0 20px 13px;color:var(--muted);font-size:10px}table{width:100%;border-collapse:separate;border-spacing:0;font-size:11px;min-width:760px}th,td{padding:11px 12px;border-bottom:1px solid #edf1f5;text-align:left}th{background:#f8fafc;color:#64748b;font-size:9px;letter-spacing:.45px;position:sticky;top:0;z-index:4}tbody tr:hover{background:#f8fbff}tbody tr:last-child td{border-bottom:0}.badge{display:inline-block;padding:5px 8px;border-radius:99px;font-weight:750;font-size:9px}.badge.good{background:#dcfce7;color:#166534}.badge.warn{background:#fef3c7;color:#92400e}.badge.bad{background:#fee2e2;color:#991b1b}
+@media(max-width:980px){.grid{grid-template-columns:repeat(3,1fr)}.two{grid-template-columns:1fr}.hero{align-items:flex-start;flex-direction:column}.controls{justify-content:flex-start}}
+@media(max-width:700px){header{height:68px;padding:0 16px}.role-badge{display:none}.connection{font-size:9px}.wrap{padding:22px 14px 45px}.hero{padding:19px}.hero h1{font-size:23px}.controls{width:100%}.period,.date{flex:1}.grid{grid-template-columns:repeat(2,1fr)}.card:last-child{grid-column:span 2}.panel{padding:16px;border-radius:17px}.table-panel{padding:0}.table-head{padding:17px 16px 12px}.table-note{padding:0 16px 12px}.metric{gap:14px}}
+@media(max-width:430px){.brand img{width:38px;height:38px}.brand-main b{font-size:14px}.brand-main small{font-size:9px}.wrap{padding-left:10px;padding-right:10px}.hero h1{font-size:21px}.hero-icon{width:43px;height:43px;font-size:18px}.barline{grid-template-columns:55px 1fr 48px;font-size:10px}.ring{width:98px;height:98px}.ring:after{width:73px;height:73px}.ring-value{font-size:20px}}
+
+.header-actions{display:flex;align-items:center;gap:10px}
+.logout-btn{border:1px solid #dbe3ee;background:#fff;color:#475569;border-radius:10px;padding:8px 11px;font-size:11px;font-weight:800;cursor:pointer;transition:.18s}
+.logout-btn:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.35)}
+@media(max-width:560px){.connection{display:none}.logout-btn{padding:8px 9px}.header-actions{gap:7px}.status{display:none}.logout-btn{padding:8px 9px}}
+</style>
+</head>
+<body>
+<header>
+<div class="brand">
+<img src="assets/logo-smpn5.png" alt="SMPN 5 Cilegon">
+<div class="brand-main"><b>e-ABSENSI 8C</b><small>SMP Negeri 5 Cilegon</small></div>
+</div>
+<div class="role">
+<span class="role-badge">PIKET / KURIKULUM</span>
+<div class="connection"><i></i><span id="status">Menghubungkan...</span></div>
+<button class="logout-btn" type="button" onclick="logout()">↪ Keluar</button>
+</div>
+</header>
+
+<main class="wrap">
+<section class="hero">
+<div class="hero-left">
+<div class="hero-icon">📊</div>
+<div><h1>Monitoring Kehadiran VIII-C</h1><p>Pantau kondisi kehadiran siswa berdasarkan data aktual dan periode yang dipilih.</p></div>
+</div>
+<div class="controls">
+<button class="period active" data-period="today">Hari Ini</button>
+<button class="period" data-period="week">Minggu Ini</button>
+<button class="period" data-period="month">Bulan Ini</button>
+<button class="period" data-period="semester">Semester</button>
+<input id="date" class="date" type="date">
+</div>
+</section>
+
+<section class="grid">
+<div class="card total"><div class="label">Total Siswa</div><div class="card-icon">👥</div><div class="value" id="total">0</div></div>
+<div class="card h"><div class="label">Hadir</div><div class="card-icon">✓</div><div class="value" id="hadir">0</div></div>
+<div class="card s"><div class="label">Sakit</div><div class="card-icon">+</div><div class="value" id="sakit">0</div></div>
+<div class="card i"><div class="label">Izin</div><div class="card-icon">ℹ</div><div class="value" id="izin">0</div></div>
+<div class="card a"><div class="label">Alpa</div><div class="card-icon">!</div><div class="value" id="alpa">0</div></div>
+</section>
+
+<section class="two">
+<div class="panel">
+<div class="panel-head"><div class="panel-icon">📈</div><div><h2>Distribusi Kehadiran</h2><div class="panel-sub">Komposisi status pada periode terpilih.</div></div></div>
+<div class="bars">
+<div class="barline"><b>Hadir</b><div class="track"><div id="barH" class="fill h" style="width:0%"></div></div><span id="pctH">0%</span></div>
+<div class="barline"><b>Sakit</b><div class="track"><div id="barS" class="fill s" style="width:0%"></div></div><span id="pctS">0%</span></div>
+<div class="barline"><b>Izin</b><div class="track"><div id="barI" class="fill i" style="width:0%"></div></div><span id="pctI">0%</span></div>
+<div class="barline"><b>Alpa</b><div class="track"><div id="barA" class="fill a" style="width:0%"></div></div><span id="pctA">0%</span></div>
+</div>
+</div>
+
+<div class="panel">
+<div class="panel-head"><div class="panel-icon">🎯</div><div><h2>Tingkat Kehadiran</h2><div class="panel-sub">Indikator utama kondisi kelas.</div></div></div>
+<div class="metric">
+<div class="ring" id="ring"><span class="ring-value" id="persen">0%</span></div>
+<div class="metric-info"><div class="metric-title" id="metricTitle">Menunggu data</div><div class="metric-desc">Persentase hadir dibanding seluruh catatan kehadiran pada periode terpilih.</div></div>
+</div>
+<div class="insight" id="insight">💡 <b>Insight:</b> Menunggu data kehadiran.</div>
+</div>
+</section>
+
+<section class="panel table-panel">
+<div class="table-head">
+<div class="panel-head" style="margin-bottom:0"><div class="panel-icon">👥</div><div><h2>Rekap Per Siswa</h2><div class="panel-sub">Ringkasan kehadiran setiap siswa.</div></div></div>
+</div>
+<div class="table-note">Siswa dengan persentase rendah otomatis ditandai untuk perhatian.</div>
+<div class="table-wrap">
+<table><thead><tr><th>No</th><th>Nama Siswa</th><th>Hadir</th><th>Sakit</th><th>Izin</th><th>Alpa</th><th>Kehadiran</th><th>Keterangan</th></tr></thead>
+<tbody id="studentTable"><tr><td colspan="8" style="text-align:center;padding:35px;color:#64748b">Memuat data...</td></tr></tbody></table>
+</div>
+</section>
+</main>
+
+<script>
+const API_URL="https://script.google.com/macros/s/AKfycbwliWNnIbrMWl6ncUTiK0xNsRI6LljdBc1AL-R85qsPdIuE6SJbdYCno4cwRDL2OYsn/exec";
+let students=[],currentPeriod="today",selectedDate=localDate();
+function localDate(d=new Date()){return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")}
+function addDays(s,n){const d=new Date(s+"T00:00:00");d.setDate(d.getDate()+n);return localDate(d)}
+function esc(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
+async function getJSON(url,retry=2){
+  for(let attempt=0;attempt<=retry;attempt++){
+    try{
+      const r=await fetch(url,{cache:"no-store"});
+      const text=await r.text();
+      let j;
+      try{j=JSON.parse(text)}
+      catch(e){
+        if(attempt<retry){await new Promise(res=>setTimeout(res,700*(attempt+1)));continue}
+        console.error("Respons API bukan JSON:",text.slice(0,300));
+        throw new Error("Server tidak mengembalikan data JSON.");
+      }
+      if(!j.success)throw new Error(j.message||"API error");
+      return j;
+    }catch(e){
+      if(attempt<retry){await new Promise(res=>setTimeout(res,700*(attempt+1)));continue}
+      throw e;
+    }
+  }
+}
+async function loadStudents(){const j=await getJSON(API_URL+"?action=ambilSiswa");students=j.data||[];document.getElementById("total").textContent=students.length}
+async function getAttendance(date){const j=await getJSON(API_URL+"?action=ambilAbsensi&tanggal="+encodeURIComponent(date));return j.data||[]}
+function rangeForPeriod(){const end=selectedDate;if(currentPeriod==="today")return[end,end];if(currentPeriod==="week"){const d=new Date(end+"T00:00:00"),day=d.getDay()||7;return[addDays(end,1-day),end]}if(currentPeriod==="month"){const d=new Date(end+"T00:00:00");return[localDate(new Date(d.getFullYear(),d.getMonth(),1)),end]}const d=new Date(end+"T00:00:00"),y=d.getFullYear(),m=d.getMonth()+1;return m>=7?[y+"-07-01",end]:[y+"-01-01",end]}
+async function collect(){
+  document.getElementById("status").textContent="Memuat data...";
+  const [start,end]=rangeForPeriod(),dates=[];
+  for(let d=start;;d=addDays(d,1)){dates.push(d);if(d===end)break;if(dates.length>370)break}
+  const all=[];
+  for(const date of dates){
+    try{
+      const rows=await getAttendance(date);
+      all.push(...rows);
+    }catch(e){
+      console.warn("Gagal mengambil "+date,e.message);
+    }
+  }
+  render(all);
+  document.getElementById("status").textContent="Data diperbarui "+new Date().toLocaleTimeString("id-ID");
+}
+function render(records){
+const c={H:0,S:0,I:0,A:0},byNis={};students.forEach(s=>byNis[s.nis]={nama:s.nama,H:0,S:0,I:0,A:0});
+records.forEach(r=>{const st=String(r.status||"").toUpperCase();if(c[st]!==undefined)c[st]++;if(byNis[r.nis]&&byNis[r.nis][st]!==undefined)byNis[r.nis][st]++});
+document.getElementById("hadir").textContent=c.H;document.getElementById("sakit").textContent=c.S;document.getElementById("izin").textContent=c.I;document.getElementById("alpa").textContent=c.A;
+const total=records.length,p=k=>total?c[k]/total*100:0;
+["H","S","I","A"].forEach(k=>{document.getElementById("bar"+k).style.width=p(k)+"%";document.getElementById("pct"+k).textContent=p(k).toFixed(1)+"%"});
+const hp=p("H");document.getElementById("persen").textContent=hp.toFixed(1)+"%";document.getElementById("ring").style.setProperty("--deg",(hp*3.6)+"deg");
+let title="Perlu perhatian",insight="Perlu perhatian pada tingkat kehadiran.";if(!total){title="Belum ada data";insight="Belum ada catatan kehadiran pada periode terpilih."}else if(hp>=95){title="Sangat Baik";insight="Kehadiran kelas sangat baik dan berada di atas 95%."}else if(hp>=90){title="Baik";insight="Kehadiran kelas berada pada kategori baik."}else if(hp>=75){title="Perlu Dipantau";insight="Kehadiran kelas perlu terus dipantau.";};document.getElementById("metricTitle").textContent=title;document.getElementById("insight").innerHTML="💡 <b>Insight:</b> "+insight;
+document.getElementById("studentTable").innerHTML=students.map((s,i)=>{const x=byNis[s.nis]||{H:0,S:0,I:0,A:0},n=x.H+x.S+x.I+x.A,pr=n?x.H/n*100:0;let b="good",t="Baik";if(!n){b="warn";t="Belum ada data"}else if(pr<75){b="bad";t="Perlu perhatian"}else if(pr<90){b="warn";t="Pantau"}return`<tr><td>${i+1}</td><td><b>${esc(s.nama)}</b></td><td>${x.H}</td><td>${x.S}</td><td>${x.I}</td><td>${x.A}</td><td><b>${pr.toFixed(1)}%</b></td><td><span class="badge ${b}">${t}</span></td></tr>`}).join("")
+}
+async function refresh(){try{await loadStudents();await collect()}catch(e){document.getElementById("status").textContent="Gagal mengambil data";document.getElementById("studentTable").innerHTML='<tr><td colspan="8" style="text-align:center;padding:35px;color:#dc2626">Gagal terhubung: '+esc(e.message)+'</td></tr>'}}
+document.getElementById("date").value=selectedDate;document.getElementById("date").addEventListener("change",e=>{selectedDate=e.target.value;refresh()});document.querySelectorAll(".period").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".period").forEach(x=>x.classList.remove("active"));b.classList.add("active");currentPeriod=b.dataset.period;refresh()}));refresh();
+function logout(){
+  if(!confirm("Keluar dari Dashboard Piket / Kurikulum?")) return;
+  window.location.href="index.html";
+}
+</script>
+</body>
+</html>

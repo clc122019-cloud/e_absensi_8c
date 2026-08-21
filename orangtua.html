@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Portal Orang Tua | e-ABSENSI 8C</title>
+<style>
+*{box-sizing:border-box}
+:root{
+--primary:#2563eb;--primary-dark:#1d4ed8;--primary-soft:#eff6ff;
+--dark:#0f172a;--muted:#64748b;--line:#e2e8f0;--bg:#f4f7fb;
+--green:#16a34a;--green-soft:#f0fdf4;--yellow:#d97706;--yellow-soft:#fffbeb;
+--blue:#2563eb;--blue-soft:#eff6ff;--red:#dc2626;--red-soft:#fef2f2
+}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;background:radial-gradient(circle at 5% 0%,rgba(37,99,235,.08),transparent 28%),linear-gradient(180deg,#f8fafc,#f3f6fb);color:var(--dark);font-family:"Segoe UI",Arial,sans-serif}
+header{height:72px;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 32px;position:sticky;top:0;z-index:20;box-shadow:0 4px 18px rgba(15,23,42,.04)}
+.brand{display:flex;align-items:center;gap:12px}.brand img{width:43px;height:43px;object-fit:contain}.brand-main b{display:block;font-size:16px;letter-spacing:-.2px}.brand-main small{display:block;color:var(--muted);font-size:10px;margin-top:3px}
+.role{display:flex;align-items:center;gap:9px}.role-badge{padding:7px 10px;border-radius:9px;background:var(--primary-soft);color:#1d4ed8;font-size:9px;font-weight:800;letter-spacing:.35px}
+main{max-width:1050px;margin:auto;padding:32px 22px 55px}
+.login{max-width:510px;margin:35px auto;background:#fff;border:1px solid var(--line);border-radius:23px;padding:30px;box-shadow:0 12px 35px rgba(15,23,42,.06)}
+.login-top{display:flex;align-items:flex-start;gap:14px;margin-bottom:23px}.login-icon{width:50px;height:50px;border-radius:15px;background:linear-gradient(135deg,#2563eb,#1d4ed8);color:#fff;display:grid;place-items:center;font-size:21px;box-shadow:0 9px 22px rgba(37,99,235,.18)}
+h1{margin:0 0 7px;font-size:26px;letter-spacing:-.5px}.sub{font-size:12px;color:var(--muted);line-height:1.65;margin:0}
+.login-help{background:#f8fafc;border:1px solid var(--line);border-radius:13px;padding:12px;margin:20px 0;font-size:10px;color:var(--muted);line-height:1.65}
+label{display:block;font-size:10px;font-weight:800;color:#334155;margin-bottom:7px}input{width:100%;border:1px solid #d5deea;border-radius:11px;padding:13px 14px;font-size:14px;outline:none;color:var(--dark);transition:.18s}input:focus{border-color:#60a5fa;box-shadow:0 0 0 4px #eff6ff}
+.btn{width:100%;margin-top:13px;background:linear-gradient(135deg,#2563eb,#1d4ed8);color:#fff;border:0;border-radius:11px;padding:13px;font-weight:800;font-size:11px;cursor:pointer;box-shadow:0 7px 17px rgba(37,99,235,.18);transition:.18s}.btn:hover{transform:translateY(-1px)}.btn:disabled{opacity:.65;cursor:wait;transform:none}
+.hint{font-size:9px;color:#7b8798;margin-top:11px;line-height:1.5}.error{background:#fff1f2;color:#b4232c;border:1px solid #fecdd3;padding:10px;border-radius:10px;font-size:10px;margin-top:12px;display:none}
+.login-footer{text-align:center;margin-top:22px;font-size:9px;color:#94a3b8}
+#dashboard{display:none}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;margin-bottom:18px}.top-left{display:flex;gap:13px}.top-icon{width:47px;height:47px;border-radius:14px;background:linear-gradient(135deg,#2563eb,#1d4ed8);color:#fff;display:grid;place-items:center;font-size:19px;box-shadow:0 8px 20px rgba(37,99,235,.16)}.top h1{font-size:27px}.logout{background:#fff;border:1px solid #dce4ee;border-radius:10px;padding:9px 13px;cursor:pointer;font-weight:750;color:#475569;font-size:10px}.logout:hover{border-color:#93c5fd;color:#1d4ed8}
+.profile{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px 20px;margin-bottom:16px;display:flex;align-items:center;justify-content:space-between;gap:15px;box-shadow:0 5px 18px rgba(15,23,42,.035)}.profile-left{display:flex;align-items:center;gap:12px}.avatar{width:43px;height:43px;border-radius:13px;background:var(--primary-soft);color:var(--primary);display:grid;place-items:center;font-size:18px}.profile b{font-size:16px}.profile span{display:block;color:var(--muted);font-size:10px;margin-top:4px}.private-badge{font-size:9px;font-weight:750;color:#166534;background:#dcfce7;padding:6px 9px;border-radius:99px}
+.cards{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:18px}.card{position:relative;overflow:hidden;background:#fff;border:1px solid var(--line);border-radius:17px;padding:16px;min-height:105px;box-shadow:0 5px 18px rgba(15,23,42,.035);transition:.2s}.card:hover{transform:translateY(-2px);box-shadow:0 10px 25px rgba(15,23,42,.07)}.card:after{content:"";position:absolute;right:-18px;bottom:-23px;width:68px;height:68px;border-radius:50%;background:currentColor;opacity:.045}.label{font-size:9px;color:var(--muted);font-weight:700}.num{font-size:28px;font-weight:850;line-height:1;margin-top:15px;letter-spacing:-.8px}.card-icon{position:absolute;right:13px;top:13px;width:30px;height:30px;border-radius:9px;display:grid;place-items:center;font-size:13px}.p{color:#475569}.p .card-icon{background:#f1f5f9}.h{color:var(--green)}.h .card-icon{background:var(--green-soft)}.s{color:var(--yellow)}.s .card-icon{background:var(--yellow-soft)}.i{color:var(--blue)}.i .card-icon{background:var(--blue-soft)}.a{color:var(--red)}.a .card-icon{background:var(--red-soft)}
+.panel{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 6px 22px rgba(15,23,42,.035)}.ph{padding:17px 20px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:12px}.ph-left{display:flex;align-items:center;gap:10px}.ph-icon{width:35px;height:35px;border-radius:10px;background:var(--primary-soft);color:var(--primary);display:grid;place-items:center;font-size:14px}.ph b{font-size:15px}.ph small{display:block;color:var(--muted);font-size:9px;margin-top:3px}.filter{border:1px solid #dce4ee;border-radius:9px;padding:8px 9px;font-size:10px;color:#475569;background:#fff;cursor:pointer}
+.table{overflow:auto;max-height:520px}table{width:100%;border-collapse:collapse;min-width:650px}th,td{padding:11px 14px;border-bottom:1px solid #edf1f5;font-size:10px;text-align:left}th{background:#f8fafc;font-size:8px;color:#64748b;letter-spacing:.4px;position:sticky;top:0;z-index:2}tbody tr:hover{background:#f8fbff}.badge{display:inline-block;padding:5px 8px;border-radius:20px;font-size:8px;font-weight:800}.H{background:#dcfce8;color:#13733d}.S{background:#fff4d6;color:#946100}.I{background:#e8f1ff;color:#1f56ba}.A{background:#ffe9e9;color:#b21e24}
+.empty,.loading{text-align:center;padding:32px;color:#718096;font-size:10px}.note{font-size:9px;color:#7b8798;margin-top:12px;text-align:center}.summary{display:flex;align-items:center;justify-content:space-between;padding:13px 17px;background:#f8fafc;border-top:1px solid var(--line);font-size:9px;color:var(--muted)}.summary b{color:#334155}
+@media(max-width:800px){.cards{grid-template-columns:repeat(3,1fr)}main{padding:24px 15px 45px}.top h1{font-size:23px}.profile{align-items:flex-start}}
+@media(max-width:600px){header{height:68px;padding:0 15px}.role-badge{display:none}main{padding:20px 12px 40px}.login{margin:18px auto;padding:23px;border-radius:19px}.cards{grid-template-columns:repeat(2,1fr);gap:10px}.card:last-child{grid-column:span 2}.top{align-items:flex-start}.logout{padding:8px 10px}.profile{padding:15px}.private-badge{display:none}.ph{align-items:flex-start;flex-direction:column}.filter{width:100%}.ph .filter{margin-left:45px;width:calc(100% - 45px)}}
+</style>
+</head>
+<body>
+<header>
+<div class="brand"><img src="assets/logo-smpn5.png" alt="Logo SMPN 5"><div class="brand-main"><b>e-ABSENSI 8C</b><small>SMP Negeri 5 Cilegon</small></div></div>
+<div class="role"><span class="role-badge">PORTAL ORANG TUA</span></div>
+</header>
+
+<main>
+<section class="login" id="login">
+<div class="login-top"><div class="login-icon">👨‍👩‍👧</div><div><h1>Portal Orang Tua</h1><p class="sub">Pantau perkembangan kehadiran anak secara mudah, cepat, dan aman.</p></div></div>
+<div class="login-help">🔒 <b>Akses pribadi.</b> Masukkan nomor HP orang tua yang telah terdaftar pada sistem e-ABSENSI 8C untuk melihat data anak.</div>
+<label for="phone">Nomor HP Orang Tua</label>
+<input id="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Contoh: 081234567890">
+<button class="btn" id="loginBtn">LIHAT KEHADIRAN ANAK</button>
+<div class="hint">Format 08..., 62..., dan +62... akan otomatis disesuaikan.</div><div id="loginStatus" style="display:none;margin-top:10px;text-align:center;font-size:11px;color:#64748b">⏳ Menghubungkan ke data sekolah...</div>
+<div class="error" id="err"></div>
+<div class="login-footer">e-ABSENSI 8C · SMP Negeri 5 Cilegon · Tahun Pelajaran 2026/2027</div>
+</section>
+
+<section id="dashboard">
+<div class="top"><div class="top-left"><div class="top-icon">📊</div><div><h1>Perkembangan Kehadiran</h1><p class="sub">Ringkasan dan riwayat kehadiran anak dari e-ABSENSI 8C.</p></div></div><button class="logout" id="logout">↪ Keluar</button></div>
+<div class="profile"><div class="profile-left"><div class="avatar">👤</div><div><b id="childName">-</b><span id="childClass">-</span></div></div><span class="private-badge">🔒 Data Pribadi</span></div>
+<div class="cards">
+<div class="card p"><div class="label">Total Catatan</div><div class="card-icon">▤</div><div class="num" id="total">0</div></div>
+<div class="card h"><div class="label">Hadir</div><div class="card-icon">✓</div><div class="num" id="H">0</div></div>
+<div class="card s"><div class="label">Sakit</div><div class="card-icon">+</div><div class="num" id="S">0</div></div>
+<div class="card i"><div class="label">Izin</div><div class="card-icon">ℹ</div><div class="num" id="I">0</div></div>
+<div class="card a"><div class="label">Alpa</div><div class="card-icon">!</div><div class="num" id="A">0</div></div>
+</div>
+<section class="panel">
+<div class="ph"><div class="ph-left"><div class="ph-icon">📅</div><div><b>Riwayat Kehadiran</b><small>Lihat catatan kehadiran berdasarkan periode.</small></div></div><select class="filter" id="period"><option value="all">Semua Riwayat</option><option value="month">Bulan Ini</option><option value="week">7 Hari Terakhir</option></select></div>
+<div class="table"><table><thead><tr><th>TANGGAL</th><th>STATUS</th><th>KETERANGAN</th><th>INPUT OLEH</th></tr></thead><tbody id="rows"><tr><td colspan="4" class="loading">Belum ada data.</td></tr></tbody></table></div>
+<div class="summary"><span>Jumlah catatan pada tampilan</span><b id="shownCount">0 catatan</b></div>
+</section>
+<div class="note">🔒 Data bersifat pribadi dan hanya ditampilkan setelah nomor HP cocok dengan data orang tua yang terdaftar.</div>
+</section>
+</main>
+
+<script>
+const API_URL="https://script.google.com/macros/s/AKfycbwliWNnIbrMWl6ncUTiK0xNsRI6LljdBc1AL-R85qsPdIuE6SJbdYCno4cwRDL2OYsn/exec";
+let records=[];
+function normalisasiNomor(n){let s=String(n||"").trim().replace(/[^\d+]/g,"");if(s.startsWith("+62"))s="62"+s.substring(3);else if(s.startsWith("0"))s="62"+s.substring(1);return s.replace(/\D/g,"")}
+function esc(v){return String(v??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
+function kodeStatus(v){v=String(v||"").trim().toUpperCase();return["H","S","I","A"].includes(v)?v:""}
+function labelStatus(v){return v==="H"?"Hadir":v==="S"?"Sakit":v==="I"?"Izin":v==="A"?"Alpa":"-"}
+function tanggal(v){return String(v||"").substring(0,10)}
+async function ambilData(url,retry=2){
+ for(let attempt=0;attempt<=retry;attempt++){
+  try{
+   const r=await fetch(url,{cache:"no-store"});
+   const text=await r.text();
+   let j;
+   try{j=JSON.parse(text)}catch(e){if(attempt<retry){await new Promise(x=>setTimeout(x,600*(attempt+1)));continue}throw new Error("Server tidak mengembalikan data JSON.")}
+   if(j.success===false)throw new Error(j.message||"Data tidak dapat diambil.");
+   return j;
+  }catch(e){if(attempt<retry){await new Promise(x=>setTimeout(x,600*(attempt+1)));continue}throw e}
+ }
+}
+async function login(){
+ const err=document.getElementById("err");err.style.display="none";
+ const wa=normalisasiNomor(document.getElementById("phone").value);
+ if(wa.length<8){err.textContent="Nomor HP belum valid.";err.style.display="block";return}
+ const btn=document.getElementById("loginBtn");btn.disabled=true;btn.textContent="MEMERIKSA...";
+ try{
+  const hasil=await ambilData(API_URL+"?action=ambilDataOrangTua&wa="+encodeURIComponent(wa));
+  const siswa=hasil.siswa;const statistik=hasil.statistik||{};records=hasil.data||[];
+  document.getElementById("childName").textContent=siswa?.nama||"-";
+  document.getElementById("childClass").textContent=siswa?.kelas||"Kelas VIII-C";
+  document.getElementById("total").textContent=statistik.total||0;
+  document.getElementById("H").textContent=statistik.hadir||0;
+  document.getElementById("S").textContent=statistik.sakit||0;
+  document.getElementById("I").textContent=statistik.izin||0;
+  document.getElementById("A").textContent=statistik.alpa||0;
+  document.getElementById("login").style.display="none";document.getElementById("dashboard").style.display="block";
+  tampilkanRiwayat();
+ }catch(e){err.textContent=e.message;err.style.display="block"}finally{btn.disabled=false;btn.textContent="LIHAT KEHADIRAN ANAK"}
+}
+function tampilkanRiwayat(){
+ const pilihan=document.getElementById("period").value;let data=[...records];
+ const sekarang=new Date(),hariIni=new Date(sekarang.getFullYear(),sekarang.getMonth(),sekarang.getDate());
+ if(pilihan==="month"){const ym=hariIni.getFullYear()+"-"+String(hariIni.getMonth()+1).padStart(2,"0");data=data.filter(r=>tanggal(r.tanggal).startsWith(ym))}
+ if(pilihan==="week"){const batas=new Date(hariIni);batas.setDate(batas.getDate()-6);data=data.filter(r=>{const d=new Date(tanggal(r.tanggal)+"T00:00:00");return d>=batas&&d<=hariIni})}
+ data.sort((a,b)=>tanggal(b.tanggal).localeCompare(tanggal(a.tanggal)));
+ const tbody=document.getElementById("rows");
+ document.getElementById("shownCount").textContent=data.length+" catatan";
+ if(!data.length){tbody.innerHTML='<tr><td colspan="4" class="empty">Belum ada catatan pada periode ini.</td></tr>';return}
+ tbody.innerHTML=data.map(r=>{const st=kodeStatus(r.status);return`<tr><td>${esc(tanggal(r.tanggal))}</td><td><span class="badge ${st}">${labelStatus(st)}</span></td><td>${esc(r.keterangan||"-")}</td><td>${esc(r.inputOleh||"-")}</td></tr>`}).join("");
+}
+document.getElementById("loginBtn").onclick=login;
+document.getElementById("phone").addEventListener("keydown",e=>{if(e.key==="Enter")login()});
+document.getElementById("period").onchange=tampilkanRiwayat;
+document.getElementById("logout").onclick=()=>{records=[];document.getElementById("dashboard").style.display="none";document.getElementById("login").style.display="block";document.getElementById("phone").value="";document.getElementById("err").style.display="none";document.getElementById("period").value="all"};
+</script>
+</body>
+</html>

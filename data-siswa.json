@@ -1,0 +1,247 @@
+[
+  {
+    "id": 1,
+    "nis": "25267171",
+    "name": "ADITYA KURNIAWAN",
+    "kelas": "Kelas VIII-C",
+    "wa": "6285714224392"
+  },
+  {
+    "id": 2,
+    "nis": "25267173",
+    "name": "AFIFA DWI ANGGRAENI",
+    "kelas": "Kelas VIII-C",
+    "wa": "6281380239173"
+  },
+  {
+    "id": 3,
+    "nis": "25267275",
+    "name": "ANINDI FEBRIYANTI",
+    "kelas": "Kelas VIII-C",
+    "wa": "6289698649693"
+  },
+  {
+    "id": 4,
+    "nis": "25267311",
+    "name": "AQILAH KAYLABILA ISLAMI",
+    "kelas": "Kelas VIII-C",
+    "wa": "627771328781"
+  },
+  {
+    "id": 5,
+    "nis": "25267040",
+    "name": "ATIQA FAIRUZ KHALISA",
+    "kelas": "Kelas VIII-C",
+    "wa": "6281906453179"
+  },
+  {
+    "id": 6,
+    "nis": "25267041",
+    "name": "AYU ZAHRA NURAINI",
+    "kelas": "Kelas VIII-C",
+    "wa": "62878788290737"
+  },
+  {
+    "id": 7,
+    "nis": "25267006",
+    "name": "AZZAHRA PUTRI PERMADANI",
+    "kelas": "Kelas VIII-C",
+    "wa": "6287833098180"
+  },
+  {
+    "id": 8,
+    "nis": "25267279",
+    "name": "BAYU JALBUR RIZQI",
+    "kelas": "Kelas VIII-C",
+    "wa": "6285930066099"
+  },
+  {
+    "id": 9,
+    "nis": "25267280",
+    "name": "CHELSEA KANAYA FARIZA",
+    "kelas": "Kelas VIII-C",
+    "wa": "6281282273443"
+  },
+  {
+    "id": 10,
+    "nis": "25267282",
+    "name": "DEIZA LAHNAQUE PUTRA C",
+    "kelas": "Kelas VIII-C",
+    "wa": "123456"
+  },
+  {
+    "id": 11,
+    "nis": "25267081",
+    "name": "FIKA RAMADANI",
+    "kelas": "Kelas VIII-C",
+    "wa": "123456"
+  },
+  {
+    "id": 12,
+    "nis": "25267351",
+    "name": "FIRLI AZZAM MUZZAKY",
+    "kelas": "Kelas VIII-C",
+    "wa": "6282113230247"
+  },
+  {
+    "id": 13,
+    "nis": "25267011",
+    "name": "GIFARI RAFSANJANI KANAFI",
+    "kelas": "Kelas VIII-C",
+    "wa": "6287765987488"
+  },
+  {
+    "id": 14,
+    "nis": "25267286",
+    "name": "ILMAN ZIKRI BUDIMAN",
+    "kelas": "Kelas VIII-C",
+    "wa": "6287808711851"
+  },
+  {
+    "id": 15,
+    "nis": "25267217",
+    "name": "KENJI RADITYANSYAH",
+    "kelas": "Kelas VIII-C",
+    "wa": "62895405138899"
+  },
+  {
+    "id": 16,
+    "nis": "25267219",
+    "name": "KHALISHA ZAHRA PRIYUDIA",
+    "kelas": "Kelas VIII-C",
+    "wa": "6285900296841"
+  },
+  {
+    "id": 17,
+    "nis": "25267051",
+    "name": "MOCHAMAD SHEVA IBRAHIM",
+    "kelas": "Kelas VIII-C",
+    "wa": "6281295920250"
+  },
+  {
+    "id": 18,
+    "nis": "25267091",
+    "name": "MUHAMAD NOVAN TRIYADI",
+    "kelas": "Kelas VIII-C",
+    "wa": "6287875338417"
+  },
+  {
+    "id": 19,
+    "nis": "25267122",
+    "name": "MUHAMAD SABIAN ALHABSI",
+    "kelas": "Kelas VIII-C",
+    "wa": "6287771261223"
+  },
+  {
+    "id": 20,
+    "nis": "25267159",
+    "name": "MUHAMMAD ALFIKRIANSYAH",
+    "kelas": "Kelas VIII-C",
+    "wa": "6281316555810"
+  },
+  {
+    "id": 21,
+    "nis": "25267194",
+    "name": "MUHAMMAD ARIFIN PUTRA",
+    "kelas": "Kelas VIII-C",
+    "wa": "6289684446121"
+  },
+  {
+    "id": 22,
+    "nis": "25267257",
+    "name": "MUHAMMAD SETIAWAN",
+    "kelas": "Kelas VIII-C",
+    "wa": "6287819575393"
+  },
+  {
+    "id": 23,
+    "nis": "25267292",
+    "name": "MUHAMMAD WILDAN",
+    "kelas": "Kelas VIII-C",
+    "wa": "6283172672453"
+  },
+  {
+    "id": 24,
+    "nis": "25267361",
+    "name": "MUHAMMAD ZIKRI ALMIZA",
+    "kelas": "Kelas VIII-C",
+    "wa": "6281905555429"
+  },
+  {
+    "id": 25,
+    "nis": "25267162",
+    "name": "NAJWA ADILLA SYAKIRA",
+    "kelas": "Kelas VIII-C",
+    "wa": "6285219451832"
+  },
+  {
+    "id": 26,
+    "nis": "25267163",
+    "name": "NANDA NURFITRIANI",
+    "kelas": "Kelas VIII-C",
+    "wa": "123456"
+  },
+  {
+    "id": 27,
+    "nis": "25267369",
+    "name": "PUTRI IZZMI KHOLIFAH",
+    "kelas": "Kelas VIII-C",
+    "wa": "6283819938384"
+  },
+  {
+    "id": 28,
+    "nis": "25267263",
+    "name": "PUTRI NABILA",
+    "kelas": "Kelas VIII-C",
+    "wa": "123456"
+  },
+  {
+    "id": 29,
+    "nis": "25267130",
+    "name": "RAHMA QIRAANI",
+    "kelas": "Kelas VIII-C",
+    "wa": "6281807041943"
+  },
+  {
+    "id": 30,
+    "nis": "25267230",
+    "name": "RAIDA FAKHIRA",
+    "kelas": "Kelas VIII-C",
+    "wa": "6281943741748"
+  },
+  {
+    "id": 31,
+    "nis": "25267334",
+    "name": "RISMA KAMILA RAMADANI",
+    "kelas": "Kelas VIII-C",
+    "wa": "62895342317796"
+  },
+  {
+    "id": 32,
+    "nis": "25267268",
+    "name": "SERGIO SIMANJUNTAK",
+    "kelas": "Kelas VIII-C",
+    "wa": "6281314200966"
+  },
+  {
+    "id": 33,
+    "nis": "25267200",
+    "name": "SITI RAMADANI",
+    "kelas": "Kelas VIII-C",
+    "wa": "6285946367679"
+  },
+  {
+    "id": 34,
+    "nis": "25267305",
+    "name": "SURYA RANJI BASTIAN",
+    "kelas": "Kelas VIII-C",
+    "wa": "6285129628566"
+  },
+  {
+    "id": 35,
+    "nis": "25267202",
+    "name": "SYAKILA DWI MARFIANI",
+    "kelas": "Kelas VIII-C",
+    "wa": "6289514346672"
+  }
+]
